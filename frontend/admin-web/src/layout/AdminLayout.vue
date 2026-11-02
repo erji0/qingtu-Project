@@ -6,7 +6,7 @@
           <el-icon><Van /></el-icon>
         </div>
         <div class="logo-text">
-          <span class="logo-name">清途校车</span>
+          <span class="logo-name">青途校车</span>
           <span class="logo-sub">智能调度管理端</span>
         </div>
       </div>
