@@ -103,7 +103,7 @@ async function handleLogin() {
 .login-page {
   min-height: 100vh;
   padding: 0 48rpx 60rpx;
-  background: linear-gradient(160deg, #2f7df6 0%, #4f9bff 38%, #f4f6fa 38%, #f4f6fa 100%);
+  background: linear-gradient(160deg, #8BA3C7 0%, #A9BCD6 38%, #f4f6fa 38%, #f4f6fa 100%);
 }
 
 .hero {
@@ -184,11 +184,11 @@ async function handleLogin() {
   line-height: 92rpx;
   margin-top: 44rpx;
   border-radius: 46rpx;
-  background: linear-gradient(90deg, #2f7df6, #4f9bff);
+  background: linear-gradient(90deg, #8BA3C7, #A9BCD6);
   color: #ffffff;
   font-size: 32rpx;
   font-weight: 600;
-  box-shadow: 0 12rpx 24rpx rgba(47, 125, 246, 0.28);
+  box-shadow: 0 12rpx 24rpx rgba(139, 163, 199, 0.28);
 }
 
 .login-button[disabled] {

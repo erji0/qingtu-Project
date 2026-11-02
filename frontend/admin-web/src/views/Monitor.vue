@@ -107,7 +107,7 @@ function progressOf(value) {
 function progressColor(item) {
   if (item.runStatus === 'DELAYED') return '#d97706'
   if (item.runStatus === 'ARRIVED') return '#0f9d58'
-  return '#2563eb'
+  return '#8BA3C7'
 }
 
 async function fetchLocations(showLoading = false) {
@@ -160,7 +160,7 @@ onBeforeUnmount(() => {
   background: #fff;
   border-radius: 12px;
   padding: 18px;
-  border: 1px solid rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(139, 163, 199, 0.1);
   box-shadow: 0 1px 2px rgba(15, 42, 92, 0.06), 0 6px 18px rgba(15, 42, 92, 0.04);
 }
 
@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eaf1fe;
+  background: #F3F6F9;
   color: var(--qt-primary);
   font-size: 20px;
 }

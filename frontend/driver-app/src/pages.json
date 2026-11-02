@@ -4,7 +4,7 @@
       "path": "pages/login/login",
       "style": {
         "navigationBarTitleText": "司机登录",
-        "navigationBarBackgroundColor": "#2f7df6",
+        "navigationBarBackgroundColor": "#8BA3C7",
         "navigationBarTextStyle": "white"
       }
     },
@@ -12,7 +12,7 @@
       "path": "pages/tasks/tasks",
       "style": {
         "navigationBarTitleText": "我的任务",
-        "navigationBarBackgroundColor": "#2f7df6",
+        "navigationBarBackgroundColor": "#8BA3C7",
         "navigationBarTextStyle": "white",
         "enablePullDownRefresh": true
       }
@@ -21,7 +21,7 @@
       "path": "pages/task-detail/task-detail",
       "style": {
         "navigationBarTitleText": "任务详情",
-        "navigationBarBackgroundColor": "#2f7df6",
+        "navigationBarBackgroundColor": "#8BA3C7",
         "navigationBarTextStyle": "white",
         "enablePullDownRefresh": true
       }
@@ -30,20 +30,20 @@
       "path": "pages/mine/index",
       "style": {
         "navigationBarTitleText": "我的",
-        "navigationBarBackgroundColor": "#2f7df6",
+        "navigationBarBackgroundColor": "#8BA3C7",
         "navigationBarTextStyle": "white"
       }
     }
   ],
   "globalStyle": {
-    "navigationBarBackgroundColor": "#2f7df6",
+    "navigationBarBackgroundColor": "#8BA3C7",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "青途司机端",
     "backgroundColor": "#f4f6fa"
   },
   "tabBar": {
     "color": "#909399",
-    "selectedColor": "#2f7df6",
+    "selectedColor": "#8BA3C7",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [

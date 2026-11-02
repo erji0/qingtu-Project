@@ -1,18 +1,18 @@
 :root {
-  --qt-primary: #2563eb;
-  --qt-primary-dark: #1e40af;
+  --qt-primary: #8BA3C7;
+  --qt-primary-dark: #5E7496;
   --qt-bg: #f2f6fc;
   --qt-text: #1f2937;
   --qt-text-secondary: #6b7280;
   --qt-border: #e5eaf2;
 
-  --el-color-primary: #2563eb;
-  --el-color-primary-light-3: #5b8def;
-  --el-color-primary-light-5: #8bb2f4;
-  --el-color-primary-light-7: #bcd0f9;
-  --el-color-primary-light-8: #d3e0fb;
-  --el-color-primary-light-9: #eaf1fe;
-  --el-color-primary-dark-2: #1d4ed8;
+  --el-color-primary: #8BA3C7;
+  --el-color-primary-light-3: #AEBFD8;
+  --el-color-primary-light-5: #C5D1E3;
+  --el-color-primary-light-7: #DCE3EE;
+  --el-color-primary-light-8: #E8EDF4;
+  --el-color-primary-light-9: #F3F6F9;
+  --el-color-primary-dark-2: #6F829F;
   --el-border-radius-base: 8px;
 }
 
@@ -116,7 +116,7 @@ body {
   border-radius: 12px;
   padding: 18px 20px;
   box-shadow: 0 1px 2px rgba(15, 42, 92, 0.06), 0 6px 18px rgba(15, 42, 92, 0.04);
-  border: 1px solid rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(139, 163, 199, 0.08);
 }
 
 .stat-icon {
@@ -128,7 +128,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  background: #eaf1fe;
+  background: #F3F6F9;
   color: var(--qt-primary);
 }
 
@@ -200,9 +200,9 @@ body {
   justify-content: center;
   padding: 24px;
   background:
-    radial-gradient(1000px 600px at 10% 0%, rgba(59, 130, 246, 0.28), transparent 60%),
-    radial-gradient(800px 500px at 100% 100%, rgba(37, 99, 235, 0.22), transparent 60%),
-    linear-gradient(135deg, #0f2a5c 0%, #1e40af 55%, #2563eb 100%);
+    radial-gradient(1000px 600px at 10% 0%, rgba(139, 163, 199, 0.28), transparent 60%),
+    radial-gradient(800px 500px at 100% 100%, rgba(139, 163, 199, 0.22), transparent 60%),
+    linear-gradient(135deg, #27364B 0%, #5E7496 55%, #8BA3C7 100%);
 }
 
 .login-card {
@@ -221,8 +221,8 @@ body {
   padding: 48px 44px;
   color: #fff;
   background:
-    radial-gradient(500px 300px at 110% 10%, rgba(96, 165, 250, 0.5), transparent 60%),
-    linear-gradient(150deg, #1e3a8a 0%, #1d4ed8 60%, #2563eb 100%);
+    radial-gradient(500px 300px at 110% 10%, rgba(139, 163, 199, 0.5), transparent 60%),
+    linear-gradient(150deg, #3A4C68 0%, #6F829F 60%, #8BA3C7 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

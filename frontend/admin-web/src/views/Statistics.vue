@@ -179,7 +179,7 @@ async function handleGenerate() {
 
 function rateColor(rate) {
   const value = Number(rate) || 0
-  if (value >= 80) return '#2563eb'
+  if (value >= 80) return '#8BA3C7'
   if (value >= 50) return '#0f9d58'
   if (value >= 30) return '#d97706'
   return '#dc2626'

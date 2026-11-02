@@ -222,7 +222,7 @@ function formatUpdateTime(value) {
   padding: 80rpx 40rpx;
   background-color: #ffffff;
   border-radius: 20rpx;
-  box-shadow: 0 8rpx 28rpx rgba(30, 94, 255, 0.06);
+  box-shadow: 0 8rpx 28rpx rgba(139, 163, 199, 0.06);
 }
 
 .empty-title {
@@ -247,7 +247,7 @@ function formatUpdateTime(value) {
 
 .status-hero {
   padding: 32rpx 28rpx 40rpx;
-  background: linear-gradient(135deg, #1e5eff 0%, #4d82ff 100%);
+  background: linear-gradient(135deg, #8BA3C7 0%, #A9BCD6 100%);
   border-radius: 0 0 36rpx 36rpx;
   color: #ffffff;
 }
@@ -389,7 +389,7 @@ function formatUpdateTime(value) {
 .progress-value {
   font-size: 34rpx;
   font-weight: 700;
-  color: #1e5eff;
+  color: #8BA3C7;
 }
 
 .progress-bar {
@@ -403,7 +403,7 @@ function formatUpdateTime(value) {
 .progress-fill {
   height: 100%;
   border-radius: 8rpx;
-  background: linear-gradient(90deg, #1e5eff, #6f9bff);
+  background: linear-gradient(90deg, #8BA3C7, #A9BCD6);
   transition: width 0.4s ease;
 }
 
@@ -498,7 +498,7 @@ function formatUpdateTime(value) {
 
 .timeline-dot.state-current {
   color: #ffffff;
-  background-color: #1e5eff;
+  background-color: #8BA3C7;
   box-shadow: 0 0 0 6rpx #dce6ff;
 }
 
@@ -540,7 +540,7 @@ function formatUpdateTime(value) {
 }
 
 .name-current {
-  color: #1e5eff;
+  color: #8BA3C7;
   font-weight: 600;
 }
 
@@ -571,8 +571,8 @@ function formatUpdateTime(value) {
 }
 
 .state-tag.state-current {
-  color: #1e5eff;
-  background-color: #eaf0ff;
+  color: #8BA3C7;
+  background-color: #EDF1F7;
 }
 
 .state-tag.state-next {

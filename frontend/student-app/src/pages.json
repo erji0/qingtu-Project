@@ -54,12 +54,12 @@
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "青途校园班车",
-    "navigationBarBackgroundColor": "#1e5eff",
+    "navigationBarBackgroundColor": "#8BA3C7",
     "backgroundColor": "#f5f7fb"
   },
   "tabBar": {
     "color": "#8a93a6",
-    "selectedColor": "#1e5eff",
+    "selectedColor": "#8BA3C7",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [

@@ -147,8 +147,8 @@ onShow(() => {
   padding: 40rpx 32rpx;
   margin-bottom: 24rpx;
   border-radius: 24rpx;
-  background: linear-gradient(135deg, #2f7df6, #5b9dff);
-  box-shadow: 0 12rpx 32rpx rgba(47, 125, 246, 0.22);
+  background: linear-gradient(135deg, #8BA3C7, #5b9dff);
+  box-shadow: 0 12rpx 32rpx rgba(139, 163, 199, 0.22);
 }
 
 .avatar {
@@ -160,7 +160,7 @@ onShow(() => {
   justify-content: center;
   font-size: 36rpx;
   font-weight: 700;
-  color: #2f7df6;
+  color: #8BA3C7;
   background-color: #ffffff;
   flex-shrink: 0;
 }
@@ -190,7 +190,7 @@ onShow(() => {
   padding: 6rpx 18rpx;
   border-radius: 999rpx;
   font-size: 22rpx;
-  color: #2f7df6;
+  color: #8BA3C7;
   background-color: #ffffff;
 }
 
@@ -203,7 +203,7 @@ onShow(() => {
 .title-extra {
   font-size: 26rpx;
   font-weight: 600;
-  color: #2f7df6;
+  color: #8BA3C7;
 }
 
 .stats-row {
@@ -230,7 +230,7 @@ onShow(() => {
 }
 
 .stat-value.running {
-  color: #2f7df6;
+  color: #8BA3C7;
 }
 
 .stat-value.pending {

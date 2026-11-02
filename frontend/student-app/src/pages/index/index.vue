@@ -253,7 +253,7 @@ function formatTime(time) {
 
 .hero {
   padding: 36rpx 32rpx 56rpx;
-  background: linear-gradient(135deg, #1e5eff 0%, #4d82ff 100%);
+  background: linear-gradient(135deg, #8BA3C7 0%, #A9BCD6 100%);
   border-radius: 0 0 36rpx 36rpx;
 }
 
@@ -322,8 +322,8 @@ function formatTime(time) {
 
 .chip.active {
   color: #ffffff;
-  background-color: #1e5eff;
-  border-color: #1e5eff;
+  background-color: #8BA3C7;
+  border-color: #8BA3C7;
   font-weight: 600;
 }
 
@@ -395,7 +395,7 @@ function formatTime(time) {
 .depart-time {
   font-size: 40rpx;
   font-weight: 700;
-  color: #1e5eff;
+  color: #8BA3C7;
   line-height: 1.1;
 }
 
@@ -471,7 +471,7 @@ function formatTime(time) {
 
 .seat-fill {
   height: 100%;
-  background: linear-gradient(90deg, #1e5eff, #6f9bff);
+  background: linear-gradient(90deg, #8BA3C7, #A9BCD6);
   border-radius: 4rpx;
 }
 
@@ -485,6 +485,6 @@ function formatTime(time) {
 }
 
 .detail-link {
-  color: #1e5eff;
+  color: #8BA3C7;
 }
 </style>

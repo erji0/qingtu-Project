@@ -235,7 +235,7 @@ onPullDownRefresh(() => {
 }
 
 .summary-value.running {
-  color: #2f7df6;
+  color: #8BA3C7;
 }
 
 .summary-value.pending {
@@ -282,7 +282,7 @@ onPullDownRefresh(() => {
 }
 
 .dot-running {
-  background-color: #2f7df6;
+  background-color: #8BA3C7;
 }
 
 .dot-pending {
@@ -320,7 +320,7 @@ onPullDownRefresh(() => {
 }
 
 .card-running {
-  border-left-color: #2f7df6;
+  border-left-color: #8BA3C7;
 }
 
 .card-pending {
@@ -368,7 +368,7 @@ onPullDownRefresh(() => {
 
 .badge-running {
   color: #ffffff;
-  background-color: #2f7df6;
+  background-color: #8BA3C7;
 }
 
 .badge-pending {
@@ -390,7 +390,7 @@ onPullDownRefresh(() => {
 .depart-time {
   font-size: 44rpx;
   font-weight: 700;
-  color: #2f7df6;
+  color: #8BA3C7;
   letter-spacing: 1rpx;
 }
 
@@ -475,7 +475,7 @@ onPullDownRefresh(() => {
   height: 120rpx;
   border-radius: 60rpx;
   background-color: #f0f5ff;
-  color: #2f7df6;
+  color: #8BA3C7;
   font-size: 32rpx;
   display: flex;
   align-items: center;
@@ -502,7 +502,7 @@ onPullDownRefresh(() => {
   line-height: 72rpx;
   border-radius: 36rpx;
   font-size: 26rpx;
-  color: #2f7df6;
+  color: #8BA3C7;
   background-color: #f0f5ff;
 }
 </style>

@@ -166,7 +166,7 @@ onMounted(loadData)
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eaf1fe;
+  background: #F3F6F9;
   color: var(--qt-primary);
   font-size: 20px;
 }

@@ -35,7 +35,7 @@ button::after {
   background-color: #ffffff;
   border-radius: 20rpx;
   padding: 28rpx;
-  box-shadow: 0 8rpx 28rpx rgba(30, 94, 255, 0.06);
+  box-shadow: 0 8rpx 28rpx rgba(139, 163, 199, 0.06);
 }
 
 .qt-btn {
@@ -47,7 +47,7 @@ button::after {
   font-size: 30rpx;
   font-weight: 600;
   color: #ffffff;
-  background-color: #1e5eff;
+  background-color: #8BA3C7;
   border: none;
   text-align: center;
 }
@@ -65,8 +65,8 @@ button::after {
   border-radius: 38rpx;
   font-size: 28rpx;
   font-weight: 500;
-  color: #1e5eff;
-  background-color: #eaf0ff;
+  color: #8BA3C7;
+  background-color: #EDF1F7;
   border: none;
   text-align: center;
 }
@@ -94,8 +94,8 @@ button::after {
 }
 
 .qt-tag-blue {
-  color: #1e5eff;
-  background-color: #eaf0ff;
+  color: #8BA3C7;
+  background-color: #EDF1F7;
 }
 
 .qt-tag-green {

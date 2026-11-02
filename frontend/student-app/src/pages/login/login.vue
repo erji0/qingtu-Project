@@ -114,7 +114,7 @@ async function submit() {
 .login-page {
   min-height: 100vh;
   padding: 80rpx 40rpx 48rpx;
-  background: linear-gradient(180deg, #1e5eff 0%, #3f7bff 40%, #f5f7fb 40%, #f5f7fb 100%);
+  background: linear-gradient(180deg, #8BA3C7 0%, #A9BCD6 40%, #f5f7fb 40%, #f5f7fb 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,7 +134,7 @@ async function submit() {
   line-height: 108rpx;
   border-radius: 28rpx;
   background-color: #ffffff;
-  color: #1e5eff;
+  color: #8BA3C7;
   font-size: 48rpx;
   font-weight: 700;
   text-align: center;
@@ -205,7 +205,7 @@ async function submit() {
 
 .link-text {
   font-size: 26rpx;
-  color: #1e5eff;
+  color: #8BA3C7;
 }
 
 .demo-card {
@@ -214,7 +214,7 @@ async function submit() {
   padding: 24rpx 28rpx;
   border-radius: 20rpx;
   background-color: #ffffff;
-  border: 2rpx dashed #c9d7ff;
+  border: 2rpx dashed #D5DFEC;
 }
 
 .demo-head {
@@ -226,7 +226,7 @@ async function submit() {
 .demo-title {
   font-size: 28rpx;
   font-weight: 600;
-  color: #1e5eff;
+  color: #8BA3C7;
 }
 
 .demo-tip {

@@ -124,7 +124,7 @@ async function handleCommand(command) {
 .sidebar {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, #163163 0%, #1e40af 55%, #2563eb 100%);
+  background: linear-gradient(180deg, #2E3F57 0%, #5E7496 55%, #8BA3C7 100%);
   color: #fff;
   overflow: hidden;
 }
@@ -266,7 +266,7 @@ async function handleCommand(command) {
   font-size: 14px;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  background: linear-gradient(135deg, #8BA3C7, #A9BCD6);
 }
 
 .user-name {

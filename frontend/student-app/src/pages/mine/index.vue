@@ -27,7 +27,7 @@
 
       <view class="qt-card demo-card">
         <view class="demo-head">
-          <uni-icons type="info" size="18" color="#1e5eff" />
+          <uni-icons type="info" size="18" color="#8BA3C7" />
           <text class="demo-title">演示数据说明</text>
         </view>
         <text class="demo-text">
@@ -99,7 +99,7 @@ function logout() {
   display: flex;
   align-items: center;
   padding: 48rpx 32rpx 64rpx;
-  background: linear-gradient(135deg, #1e5eff 0%, #4d82ff 100%);
+  background: linear-gradient(135deg, #8BA3C7 0%, #A9BCD6 100%);
   border-radius: 0 0 36rpx 36rpx;
 }
 
@@ -111,7 +111,7 @@ function logout() {
   text-align: center;
   font-size: 44rpx;
   font-weight: 700;
-  color: #1e5eff;
+  color: #8BA3C7;
   background-color: #ffffff;
   flex-shrink: 0;
 }

@@ -202,7 +202,7 @@ function formatDateTime(value) {
   align-items: center;
   justify-content: space-between;
   padding: 36rpx 32rpx 48rpx;
-  background: linear-gradient(135deg, #1e5eff 0%, #4d82ff 100%);
+  background: linear-gradient(135deg, #8BA3C7 0%, #A9BCD6 100%);
   border-radius: 0 0 36rpx 36rpx;
 }
 
@@ -231,7 +231,7 @@ function formatDateTime(value) {
   text-align: center;
   font-size: 34rpx;
   font-weight: 700;
-  color: #1e5eff;
+  color: #8BA3C7;
   background-color: #ffffff;
 }
 
@@ -302,7 +302,7 @@ function formatDateTime(value) {
   margin-left: 20rpx;
   font-size: 40rpx;
   font-weight: 700;
-  color: #1e5eff;
+  color: #8BA3C7;
 }
 
 .cancelled .res-depart {
@@ -385,7 +385,7 @@ function formatDateTime(value) {
 }
 
 .locate-btn {
-  color: #1e5eff;
-  background-color: #eaf0ff;
+  color: #8BA3C7;
+  background-color: #EDF1F7;
 }
 </style>

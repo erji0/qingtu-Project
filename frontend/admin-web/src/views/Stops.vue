@@ -261,7 +261,7 @@ onMounted(loadRoutes)
   font-size: 12px;
   font-weight: 600;
   color: var(--qt-primary);
-  background: #eaf1fe;
+  background: #F3F6F9;
 }
 
 .form-tip {

@@ -460,7 +460,7 @@ onPullDownRefresh(async () => {
   line-height: 72rpx;
   border-radius: 36rpx;
   font-size: 26rpx;
-  color: #2f7df6;
+  color: #8BA3C7;
   background-color: #f0f5ff;
 }
 
@@ -475,7 +475,7 @@ onPullDownRefresh(async () => {
 }
 
 .banner-running {
-  background: linear-gradient(135deg, #2f7df6, #5b9dff);
+  background: linear-gradient(135deg, #8BA3C7, #5b9dff);
 }
 
 .banner-pending {
@@ -550,7 +550,7 @@ onPullDownRefresh(async () => {
 }
 
 .info-value.strong {
-  color: #2f7df6;
+  color: #8BA3C7;
   font-size: 30rpx;
   font-weight: 600;
 }
@@ -560,7 +560,7 @@ onPullDownRefresh(async () => {
 }
 
 .status-text.status-running {
-  color: #2f7df6;
+  color: #8BA3C7;
 }
 
 .status-text.status-pending {
@@ -609,7 +609,7 @@ onPullDownRefresh(async () => {
   border-radius: 22rpx;
   text-align: center;
   font-size: 22rpx;
-  color: #2f7df6;
+  color: #8BA3C7;
   background-color: #eaf2ff;
   flex-shrink: 0;
 }
@@ -656,7 +656,7 @@ onPullDownRefresh(async () => {
   padding: 2rpx 12rpx;
   border-radius: 8rpx;
   font-size: 20rpx;
-  color: #2f7df6;
+  color: #8BA3C7;
   background-color: #eaf2ff;
 }
 
@@ -688,7 +688,7 @@ onPullDownRefresh(async () => {
 }
 
 .location-value.current {
-  color: #2f7df6;
+  color: #8BA3C7;
 }
 
 .location-value.next {
@@ -720,7 +720,7 @@ onPullDownRefresh(async () => {
 .progress-percent {
   font-size: 26rpx;
   font-weight: 600;
-  color: #2f7df6;
+  color: #8BA3C7;
 }
 
 .progress-track {
@@ -733,7 +733,7 @@ onPullDownRefresh(async () => {
 .progress-fill {
   height: 100%;
   border-radius: 8rpx;
-  background: linear-gradient(90deg, #2f7df6, #63a4ff);
+  background: linear-gradient(90deg, #8BA3C7, #63a4ff);
   transition: width 0.4s ease;
 }
 
@@ -822,8 +822,8 @@ onPullDownRefresh(async () => {
   height: 18rpx;
   border-radius: 9rpx;
   margin-left: 6rpx;
-  background-color: #2f7df6;
-  box-shadow: 0 0 0 6rpx rgba(47, 125, 246, 0.15);
+  background-color: #8BA3C7;
+  box-shadow: 0 0 0 6rpx rgba(139, 163, 199, 0.15);
 }
 
 .state-next .loc-dot {
@@ -856,7 +856,7 @@ onPullDownRefresh(async () => {
 }
 
 .state-current .loc-name {
-  color: #2f7df6;
+  color: #8BA3C7;
   font-weight: 600;
 }
 
@@ -866,7 +866,7 @@ onPullDownRefresh(async () => {
 }
 
 .state-current .loc-state {
-  color: #2f7df6;
+  color: #8BA3C7;
 }
 
 .state-next .loc-state {
@@ -896,8 +896,8 @@ onPullDownRefresh(async () => {
 
 .action-button.primary {
   color: #ffffff;
-  background: linear-gradient(90deg, #2f7df6, #4f9bff);
-  box-shadow: 0 10rpx 24rpx rgba(47, 125, 246, 0.25);
+  background: linear-gradient(90deg, #8BA3C7, #A9BCD6);
+  box-shadow: 0 10rpx 24rpx rgba(139, 163, 199, 0.25);
 }
 
 .action-button.finish {

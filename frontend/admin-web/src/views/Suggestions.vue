@@ -197,7 +197,7 @@ onMounted(loadSuggestions)
 
 .suggestion-card:hover {
   border-color: #c7d7fb;
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 6px 18px rgba(139, 163, 199, 0.08);
 }
 
 .card-head {

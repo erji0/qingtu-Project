@@ -131,7 +131,7 @@ async function submit() {
 .register-page {
   min-height: 100vh;
   padding: 48rpx 32rpx;
-  background: linear-gradient(180deg, #1e5eff 0%, #3f7bff 28%, #f5f7fb 28%, #f5f7fb 100%);
+  background: linear-gradient(180deg, #8BA3C7 0%, #A9BCD6 28%, #f5f7fb 28%, #f5f7fb 100%);
 }
 
 .page-head {
@@ -197,6 +197,6 @@ async function submit() {
 
 .link-text {
   font-size: 26rpx;
-  color: #1e5eff;
+  color: #8BA3C7;
 }
 </style>

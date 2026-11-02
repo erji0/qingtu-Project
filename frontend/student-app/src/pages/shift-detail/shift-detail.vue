@@ -85,7 +85,7 @@
         </view>
 
         <view class="tip-card">
-          <uni-icons type="info" size="16" color="#1e5eff" />
+          <uni-icons type="info" size="16" color="#8BA3C7" />
           <text class="tip-text">预约成功后请提前到站候车，车辆发车后不可取消预约。</text>
         </view>
       </view>
@@ -259,7 +259,7 @@ function formatDate(date) {
 
 .hero {
   padding: 36rpx 32rpx 44rpx;
-  background: linear-gradient(135deg, #1e5eff 0%, #4d82ff 100%);
+  background: linear-gradient(135deg, #8BA3C7 0%, #A9BCD6 100%);
   border-radius: 0 0 36rpx 36rpx;
   color: #ffffff;
 }
@@ -376,7 +376,7 @@ function formatDate(date) {
 }
 
 .text-primary {
-  color: #1e5eff;
+  color: #8BA3C7;
 }
 
 .text-danger {
@@ -443,7 +443,7 @@ function formatDate(date) {
 
 .dot-highlight {
   color: #ffffff;
-  background-color: #1e5eff;
+  background-color: #8BA3C7;
 }
 
 .timeline-line {
@@ -470,8 +470,8 @@ function formatDate(date) {
   padding: 2rpx 12rpx;
   border-radius: 8rpx;
   font-size: 20rpx;
-  color: #1e5eff;
-  background-color: #eaf0ff;
+  color: #8BA3C7;
+  background-color: #EDF1F7;
 }
 
 .tip-card {
@@ -481,7 +481,7 @@ function formatDate(date) {
   margin-top: 20rpx;
   padding: 20rpx 24rpx;
   border-radius: 14rpx;
-  background-color: #eaf0ff;
+  background-color: #EDF1F7;
 }
 
 .tip-text {
@@ -518,8 +518,8 @@ function formatDate(date) {
 
 .ghost-btn {
   flex: 0 0 34%;
-  color: #1e5eff;
-  background-color: #eaf0ff;
+  color: #8BA3C7;
+  background-color: #EDF1F7;
 }
 
 .full-btn {

@@ -20,7 +20,7 @@ defineProps({
   suffix: { type: String, default: '' },
   hint: { type: String, default: '' },
   icon: { type: [String, Object], default: 'DataLine' },
-  iconBg: { type: String, default: '#eaf1fe' },
-  iconColor: { type: String, default: '#2563eb' }
+  iconBg: { type: String, default: '#F3F6F9' },
+  iconColor: { type: String, default: '#8BA3C7' }
 })
 </script>
