@@ -1,0 +1,80 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/register/register",
+      "style": {
+        "navigationBarTitleText": "注册"
+      }
+    },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "班次查询",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/shift-detail/shift-detail",
+      "style": {
+        "navigationBarTitleText": "班次详情"
+      }
+    },
+    {
+      "path": "pages/location/location",
+      "style": {
+        "navigationBarTitleText": "车辆位置"
+      }
+    },
+    {
+      "path": "pages/reservations/index",
+      "style": {
+        "navigationBarTitleText": "我的预约",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "青途校园班车",
+    "navigationBarBackgroundColor": "#1e5eff",
+    "backgroundColor": "#f5f7fb"
+  },
+  "tabBar": {
+    "color": "#8a93a6",
+    "selectedColor": "#1e5eff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "班次"
+      },
+      {
+        "pagePath": "pages/reservations/index",
+        "text": "我的预约"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+<template>
+  <view class="mine-page">
+    <view class="hero">
+      <view class="avatar">{{ avatarText }}</view>
+      <view class="hero-info">
+        <text class="user-name">{{ user.name || '同学' }}</text>
+        <text class="user-account">账号：{{ user.username || '-' }}</text>
+      </view>
+      <text class="role-pill">{{ roleText }}</text>
+    </view>
+
+    <view class="content">
+      <view class="qt-card info-card">
+        <view class="info-row">
+          <text class="row-label">姓名</text>
+          <text class="row-value">{{ user.name || '-' }}</text>
+        </view>
+        <view class="info-row">
+          <text class="row-label">账号</text>
+          <text class="row-value">{{ user.username || '-' }}</text>
+        </view>
+        <view class="info-row">
+          <text class="row-label">身份</text>
+          <text class="row-value">{{ roleText }}</text>
+        </view>
+      </view>
+
+      <view class="qt-card demo-card">
+        <view class="demo-head">
+          <uni-icons type="info" size="18" color="#1e5eff" />
+          <text class="demo-title">演示数据说明</text>
+        </view>
+        <text class="demo-text">
+          本系统为校园校车智能调度演示环境，班次、车辆与位置数据均由后端模拟生成。
+          可使用演示账号 student / 123456 登录，体验班次查询、预约与车辆实时位置。
+        </text>
+        <text class="demo-text">车辆位置每 10 秒自动刷新，模拟调度任务会持续推进车辆进度。</text>
+      </view>
+
+      <button class="qt-btn logout-btn" @click="logout">退出登录</button>
+      <text class="version">青途 · 校园班车学生端 v1.0.0</text>
+    </view>
+  </view>
+</template>
+
+<script setup>
+import { computed, ref } from 'vue'
+import { onShow } from '@dcloudio/uni-app'
+import { clearAuth, getToken, getUser } from '@/api/request'
+
+const user = ref({})
+
+const roleText = computed(() => {
+  const role = user.value.role
+  if (role === 'STUDENT') return '学生'
+  if (role === 'ADMIN') return '管理员'
+  if (role === 'DRIVER') return '司机'
+  return '学生'
+})
+
+const avatarText = computed(() => {
+  const name = user.value.name || ''
+  return name ? name.charAt(0) : '学'
+})
+
+onShow(() => {
+  if (!getToken()) {
+    uni.reLaunch({ url: '/pages/login/login' })
+    return
+  }
+  user.value = getUser() || {}
+})
+
+function logout() {
+  uni.showModal({
+    title: '退出登录',
+    content: '确定要退出当前账号吗？',
+    confirmText: '退出',
+    confirmColor: '#ef4444',
+    success: (res) => {
+      if (!res.confirm) return
+      clearAuth()
+      uni.showToast({ title: '已退出登录', icon: 'none' })
+      setTimeout(() => {
+        uni.reLaunch({ url: '/pages/login/login' })
+      }, 400)
+    }
+  })
+}
+</script>
+
+<style scoped>
+.mine-page {
+  min-height: 100vh;
+  background-color: #f5f7fb;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  padding: 48rpx 32rpx 64rpx;
+  background: linear-gradient(135deg, #1e5eff 0%, #4d82ff 100%);
+  border-radius: 0 0 36rpx 36rpx;
+}
+
+.avatar {
+  width: 108rpx;
+  height: 108rpx;
+  line-height: 108rpx;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1e5eff;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.hero-info {
+  flex: 1;
+  min-width: 0;
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-account {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.role-pill {
+  padding: 8rpx 20rpx;
+  border-radius: 24rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.content {
+  padding: 24rpx;
+}
+
+.info-card {
+  padding: 8rpx 26rpx;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26rpx 0;
+  border-bottom: 2rpx solid #f0f3f9;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.row-label {
+  font-size: 26rpx;
+  color: #8a93a6;
+}
+
+.row-value {
+  font-size: 28rpx;
+  color: #1f2733;
+  font-weight: 500;
+}
+
+.demo-card {
+  margin-top: 20rpx;
+}
+
+.demo-head {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  margin-bottom: 16rpx;
+}
+
+.demo-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2733;
+}
+
+.demo-text {
+  display: block;
+  font-size: 24rpx;
+  line-height: 1.75;
+  color: #7a8497;
+}
+
+.demo-text + .demo-text {
+  margin-top: 4rpx;
+}
+
+.logout-btn {
+  margin-top: 40rpx;
+  background-color: #ffffff;
+  color: #ef4444;
+  border: 2rpx solid #f3d4d4;
+}
+
+.version {
+  display: block;
+  margin-top: 32rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #b0b8c6;
+}
+</style>

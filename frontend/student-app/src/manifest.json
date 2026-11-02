@@ -1,0 +1,37 @@
+{
+  "name": "青途校园班车",
+  "appid": "__UNI__QINGTUS",
+  "description": "校园校车智能调度系统学生端",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "modules": {},
+    "distribute": {
+      "android": {
+        "permissions": []
+      },
+      "ios": {},
+      "sdkConfigs": {}
+    }
+  },
+  "quickapp": {},
+  "mp-weixin": {
+    "usingComponents": true
+  },
+  "h5": {
+    "title": "青途 · 校园班车",
+    "router": {
+      "mode": "hash"
+    }
+  }
+}

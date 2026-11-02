@@ -1,0 +1,15 @@
+{
+  "name": "青途司机端",
+  "appid": "",
+  "description": "青途校园巴士智能调度系统司机端",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "vueVersion": "3",
+  "h5": {
+    "title": "青途校园巴士 · 司机端",
+    "router": {
+      "mode": "hash"
+    }
+  }
+}

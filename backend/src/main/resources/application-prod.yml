@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # Docker 编排中 mysql 服务名即 host，数据库与账号在 docker-compose 中定义
+    url: ${DB_URL:jdbc:mysql://mysql:3306/campus_bus?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    serialization:
+      write-dates-as-timestamps: false
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    # 生产环境关闭 SQL 日志
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:REPLACE_WITH_A_STRONG_RANDOM_SECRET_AT_LEAST_32_CHARS_LONG_2026}
+    expire-hours: 24
+  simulation:
+    rate: 30000
+    tick-seconds: 30
+    seconds-per-segment: 45
+
+logging:
+  level:
+    root: INFO
+    com.qingtu: INFO
