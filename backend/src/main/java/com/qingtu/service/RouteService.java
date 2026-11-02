@@ -32,28 +32,54 @@ public class RouteService {
         return routeMapper.selectList(wrapper);
     }
 
+/**
+ * 创建新的公交线路
+ * @param route 包含线路信息的BusRoute对象
+ * @return 创建后的BusRoute对象，包含生成的ID和其他信息
+ * @throws BusinessException 当线路名称为空或空白时抛出异常
+ */
     public BusRoute create(BusRoute route) {
+    // 检查线路名称是否为空或空白，如果是则抛出业务异常
         if (route.getName() == null || route.getName().isBlank()) {
             throw new BusinessException("请输入线路名称");
         }
+    // 设置线路ID为null，让数据库自动生成
         route.setId(null);
+    // 设置线路状态，如果未指定状态则默认为1
         route.setStatus(route.getStatus() == null ? 1 : route.getStatus());
+    // 设置创建时间为当前时间
         route.setCreateTime(LocalDateTime.now());
+    // 将线路信息插入数据库
         routeMapper.insert(route);
+    // 返回创建后的线路对象
         return route;
     }
 
+/**
+ * 更新公交线路信息
+ * @param id 要更新的公交线路ID
+ * @param route 包含更新后信息的公交线路对象
+ * @return 更新后的完整公交线路信息
+ * @throws BusinessException 当指定的线路ID不存在时抛出
+ */
     public BusRoute update(Long id, BusRoute route) {
+    // 根据ID查询现有的公交线路信息
         BusRoute exists = routeMapper.selectById(id);
+    // 如果线路不存在，抛出业务异常
         if (exists == null) {
             throw new BusinessException("线路不存在");
         }
+    // 更新线路名称
         exists.setName(route.getName());
+    // 更新线路描述
         exists.setDescription(route.getDescription());
+    // 如果线路状态不为空，则更新线路状态
         if (route.getStatus() != null) {
             exists.setStatus(route.getStatus());
         }
+    // 执行更新操作
         routeMapper.updateById(exists);
+    // 返回更新后的线路信息
         return exists;
     }
 
