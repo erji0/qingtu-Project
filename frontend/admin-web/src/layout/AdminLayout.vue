@@ -85,6 +85,7 @@ const menus = [
   { path: '/reservations', title: '预约记录', icon: 'Document' },
   { path: '/statistics', title: '预约统计', icon: 'TrendCharts' },
   { path: '/suggestions', title: '调度建议', icon: 'MagicStick' },
+  { path: '/drivers', title: '司机管理', icon: 'User' },
   { path: '/monitor', title: '车辆监控', icon: 'Monitor' }
 ]
 

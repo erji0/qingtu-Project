@@ -59,3 +59,11 @@ export const dispatchApi = {
 export const monitorApi = {
   locations: () => request.get('/admin/monitor/locations')
 }
+
+export const driverApi = {
+  list: () => request.get('/admin/drivers'),
+  create: (data) => request.post('/admin/drivers', data),
+  update: (id, data) => request.put(`/admin/drivers/${id}`, data),
+  remove: (id) => request.delete(`/admin/drivers/${id}`),
+  updateStatus: (id, status) => request.put(`/admin/drivers/${id}/status`, null, { params: { status } })
+}

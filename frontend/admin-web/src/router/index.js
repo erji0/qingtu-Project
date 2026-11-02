@@ -54,6 +54,11 @@ const routes = [
         meta: { title: '调度建议' }
       },
       {
+        path: 'drivers',
+        component: () => import('../views/Drivers.vue'),
+        meta: { title: '司机管理' }
+      },
+      {
         path: 'monitor',
         component: () => import('../views/Monitor.vue'),
         meta: { title: '车辆监控' }
