@@ -26,11 +26,13 @@ export const SHIFT_STATUS_TAG = {
 
 export const RESERVATION_STATUS_LABELS = {
   RESERVED: '已预约',
+  SIGNED: '已签到',
   CANCELLED: '已取消'
 }
 
 export const RESERVATION_STATUS_TAG = {
   RESERVED: 'success',
+  SIGNED: 'primary',
   CANCELLED: 'info'
 }
 

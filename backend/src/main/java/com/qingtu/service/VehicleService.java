@@ -119,7 +119,7 @@ public class VehicleService {
         List<Long> shiftIds = shifts.stream().map(BusShift::getId).collect(Collectors.toList());
         List<BusReservation> reservations = reservationMapper.selectList(new LambdaQueryWrapper<BusReservation>()
                 .in(BusReservation::getShiftId, shiftIds)
-                .eq(BusReservation::getStatus, ReservationStatus.RESERVED));
+                .in(BusReservation::getStatus, ReservationStatus.RESERVED, ReservationStatus.SIGNED));
         return shifts.stream()
                 .mapToInt(s -> (int) reservations.stream()
                         .filter(r -> r.getShiftId().equals(s.getId()))

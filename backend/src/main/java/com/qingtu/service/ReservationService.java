@@ -60,7 +60,7 @@ public class ReservationService {
         Long duplicated = reservationMapper.selectCount(new LambdaQueryWrapper<BusReservation>()
                 .eq(BusReservation::getUserId, userId)
                 .eq(BusReservation::getShiftId, shiftId)
-                .eq(BusReservation::getStatus, ReservationStatus.RESERVED));
+                .in(BusReservation::getStatus, ReservationStatus.RESERVED, ReservationStatus.SIGNED));
         if (duplicated != null && duplicated > 0) {
             throw new BusinessException("您已预约该班次，请勿重复预约");
         }
@@ -105,7 +105,7 @@ public class ReservationService {
             throw new BusinessException(403, "只能取消自己的预约");
         }
         if (!ReservationStatus.RESERVED.equals(reservation.getStatus())) {
-            throw new BusinessException("该预约已取消");
+            throw new BusinessException("该预约已取消或已签到，无法取消");
         }
         BusShift shift = shiftMapper.selectById(reservation.getShiftId());
         if (shift != null && (ShiftStatus.RUNNING.equals(shift.getStatus())
@@ -116,6 +116,46 @@ public class ReservationService {
         reservation.setCancelTime(LocalDateTime.now());
         reservationMapper.updateById(reservation);
         return toVO(reservation, shift == null ? null : shiftService.getVO(shift.getId()), findUserName(userId));
+    }
+
+    /**
+     * 学生签到：将本人该预约状态由 RESERVED 更新为 SIGNED。
+     */
+    @Transactional
+    public ReservationVO sign(Long userId, Long reservationId) {
+        BusReservation reservation = reservationMapper.selectById(reservationId);
+        if (reservation == null) {
+            throw new BusinessException("预约记录不存在");
+        }
+        if (!Objects.equals(reservation.getUserId(), userId)) {
+            throw new BusinessException(403, "只能签到自己名下的预约");
+        }
+        if (ReservationStatus.SIGNED.equals(reservation.getStatus())) {
+            throw new BusinessException("该预约已签到，请勿重复签到");
+        }
+        if (!ReservationStatus.RESERVED.equals(reservation.getStatus())) {
+            throw new BusinessException("该预约已取消，无法签到");
+        }
+        BusShift shift = shiftMapper.selectById(reservation.getShiftId());
+        if (shift != null && (ShiftStatus.FINISHED.equals(shift.getStatus())
+                || ShiftStatus.CANCELLED.equals(shift.getStatus()))) {
+            throw new BusinessException("该班次已结束或已取消，无法签到");
+        }
+        reservation.setStatus(ReservationStatus.SIGNED);
+        reservationMapper.updateById(reservation);
+        return toVO(reservation, shift == null ? null : shiftService.getVO(shift.getId()), findUserName(userId));
+    }
+
+    /**
+     * 查询学生在某班次的有效预约（未取消），用于班次详情页展示签到入口。
+     */
+    public BusReservation findActiveReservation(Long userId, Long shiftId) {
+        List<BusReservation> list = reservationMapper.selectList(new LambdaQueryWrapper<BusReservation>()
+                .eq(BusReservation::getUserId, userId)
+                .eq(BusReservation::getShiftId, shiftId)
+                .in(BusReservation::getStatus, ReservationStatus.RESERVED, ReservationStatus.SIGNED)
+                .orderByDesc(BusReservation::getCreateTime));
+        return list.isEmpty() ? null : list.get(0);
     }
 
     public List<ReservationVO> listAll(Long shiftId, LocalDate date) {

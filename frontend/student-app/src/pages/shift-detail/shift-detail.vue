@@ -99,6 +99,25 @@
           查看车辆位置
         </button>
         <button
+          v-if="detail.myReservationStatus === 'RESERVED'"
+          class="action-btn qt-btn"
+          :class="{ 'full-btn': detail.status !== 'RUNNING' }"
+          :loading="signing"
+          :disabled="signing"
+          @click="sign"
+        >
+          签到
+        </button>
+        <button
+          v-else-if="detail.myReservationStatus === 'SIGNED'"
+          class="action-btn signed-btn"
+          :class="{ 'full-btn': detail.status !== 'RUNNING' }"
+          disabled
+        >
+          已签到
+        </button>
+        <button
+          v-else
           class="action-btn qt-btn"
           :class="{ 'full-btn': detail.status !== 'RUNNING' }"
           :loading="reserving"
@@ -115,7 +134,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
-import { getShiftDetail, createReservation } from '@/api'
+import { getShiftDetail, createReservation, signReservation } from '@/api'
 
 const STATUS_TEXT = {
   SCHEDULED: '待发车',
@@ -128,6 +147,7 @@ const id = ref('')
 const detail = ref(null)
 const loading = ref(true)
 const reserving = ref(false)
+const signing = ref(false)
 
 const remaining = computed(() => {
   if (!detail.value) return 0
@@ -189,6 +209,20 @@ async function reserve() {
     // 错误提示已由请求层统一处理
   } finally {
     reserving.value = false
+  }
+}
+
+async function sign() {
+  if (signing.value || !detail.value || !detail.value.myReservationId) return
+  signing.value = true
+  try {
+    await signReservation(detail.value.myReservationId)
+    detail.value.myReservationStatus = 'SIGNED'
+    uni.showToast({ title: '签到成功', icon: 'success' })
+  } catch (e) {
+    // 错误提示已由请求层统一处理
+  } finally {
+    signing.value = false
   }
 }
 
@@ -490,6 +524,11 @@ function formatDate(date) {
 
 .full-btn {
   flex: 1;
+}
+
+.signed-btn {
+  color: #16a34a;
+  background-color: #e8f8ef;
 }
 
 .empty-tip {

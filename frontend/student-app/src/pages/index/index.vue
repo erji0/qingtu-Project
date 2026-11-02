@@ -52,7 +52,7 @@
 
       <view v-else class="shift-list">
         <view
-          v-for="shift in shifts"
+          v-for="shift in sortedShifts"
           :key="shift.id"
           class="qt-card shift-card"
           @click="openDetail(shift.id)"
@@ -127,6 +127,16 @@ const prettyDate = computed(() => {
   const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][d.getDay()]
   const label = `${d.getMonth() + 1}月${d.getDate()}日 ${week}`
   return date.value === todayString() ? `今天 ${label}` : label
+})
+
+// 待发车班次置顶，同组内按发车时间升序
+const sortedShifts = computed(() => {
+  return shifts.value.slice().sort((a, b) => {
+    const aPending = a.status === 'SCHEDULED' ? 0 : 1
+    const bPending = b.status === 'SCHEDULED' ? 0 : 1
+    if (aPending !== bPending) return aPending - bPending
+    return String(a.departTime || '').localeCompare(String(b.departTime || ''))
+  })
 })
 
 onLoad(() => {

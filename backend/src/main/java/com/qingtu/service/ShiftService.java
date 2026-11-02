@@ -113,7 +113,7 @@ public class ShiftService {
                 .stream().collect(Collectors.groupingBy(BusStop::getRouteId));
         Map<Long, Long> reservedMap = reservationMapper.selectList(new LambdaQueryWrapper<BusReservation>()
                         .in(BusReservation::getShiftId, shiftIds)
-                        .eq(BusReservation::getStatus, ReservationStatus.RESERVED))
+                        .in(BusReservation::getStatus, ReservationStatus.RESERVED, ReservationStatus.SIGNED))
                 .stream().collect(Collectors.groupingBy(BusReservation::getShiftId, Collectors.counting()));
 
         return shifts.stream().map(shift -> {
@@ -256,7 +256,7 @@ public class ShiftService {
     public int activeReservedCount(Long shiftId) {
         Long count = reservationMapper.selectCount(new LambdaQueryWrapper<BusReservation>()
                 .eq(BusReservation::getShiftId, shiftId)
-                .eq(BusReservation::getStatus, ReservationStatus.RESERVED));
+                .in(BusReservation::getStatus, ReservationStatus.RESERVED, ReservationStatus.SIGNED));
         return count == null ? 0 : count.intValue();
     }
 

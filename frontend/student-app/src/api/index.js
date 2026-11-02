@@ -50,3 +50,10 @@ export function cancelReservation(id) {
     method: 'PUT'
   })
 }
+
+export function signReservation(id) {
+  return request({
+    url: `/student/reservations/${id}/sign`,
+    method: 'PUT'
+  })
+}

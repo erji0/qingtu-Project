@@ -9,6 +9,7 @@ import com.qingtu.dto.ReservationRequest;
 import com.qingtu.dto.ReservationVO;
 import com.qingtu.dto.ShiftDetailVO;
 import com.qingtu.dto.ShiftVO;
+import com.qingtu.entity.BusReservation;
 import com.qingtu.entity.BusRoute;
 import com.qingtu.security.UserContext;
 import com.qingtu.service.LocationService;
@@ -48,7 +49,13 @@ public class StudentController {
 
     @GetMapping("/shifts/{id}")
     public Result<ShiftDetailVO> shiftDetail(@PathVariable Long id) {
-        return Result.ok(shiftService.detail(id));
+        ShiftDetailVO detail = shiftService.detail(id);
+        BusReservation mine = reservationService.findActiveReservation(UserContext.require().getUserId(), id);
+        if (mine != null) {
+            detail.setMyReservationId(mine.getId());
+            detail.setMyReservationStatus(mine.getStatus());
+        }
+        return Result.ok(detail);
     }
 
     @GetMapping("/shifts/{id}/location")
@@ -74,5 +81,10 @@ public class StudentController {
     @PutMapping("/reservations/{id}/cancel")
     public Result<ReservationVO> cancel(@PathVariable Long id) {
         return Result.ok(reservationService.cancel(UserContext.require().getUserId(), id));
+    }
+
+    @PutMapping("/reservations/{id}/sign")
+    public Result<ReservationVO> sign(@PathVariable Long id) {
+        return Result.ok(reservationService.sign(UserContext.require().getUserId(), id));
     }
 }
