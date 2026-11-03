@@ -29,7 +29,7 @@ public class AdminShiftController {
     public Result<List<ShiftVO>> list(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
             @RequestParam(required = false) Long routeId) {
-        return Result.ok(shiftService.list(date, routeId));
+        return Result.ok(shiftService.listAdmin(date, routeId));
     }
 
     @GetMapping("/drivers")

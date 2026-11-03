@@ -54,6 +54,10 @@ public class ShiftService {
     private final DriverTaskMapper taskMapper;
     private final BusVehicleLocationMapper locationMapper;
 
+    /**
+     * 班次列表（默认按学生端排序：状态优先级 运行中→待发车→已完成→已取消，
+     * 同状态按发车时间升序）。学生端、调度建议、统计模块共用。
+     */
     public List<ShiftVO> list(LocalDate date, Long routeId) {
         LambdaQueryWrapper<BusShift> wrapper = new LambdaQueryWrapper<BusShift>();
         if (date != null) {
@@ -62,8 +66,22 @@ public class ShiftService {
         if (routeId != null) {
             wrapper.eq(BusShift::getRouteId, routeId);
         }
-        // 状态优先级：运行中 → 待发车 → 已完成 → 已取消，同状态按发车时间升序
         wrapper.last("ORDER BY FIELD(status, 'RUNNING', 'SCHEDULED', 'FINISHED', 'CANCELLED'), shift_date ASC, depart_time ASC");
+        return buildVOs(shiftMapper.selectList(wrapper));
+    }
+
+    /**
+     * 管理端班次列表：纯按发车时间升序，便于管理员查看排班时间线。
+     */
+    public List<ShiftVO> listAdmin(LocalDate date, Long routeId) {
+        LambdaQueryWrapper<BusShift> wrapper = new LambdaQueryWrapper<BusShift>();
+        if (date != null) {
+            wrapper.eq(BusShift::getShiftDate, date);
+        }
+        if (routeId != null) {
+            wrapper.eq(BusShift::getRouteId, routeId);
+        }
+        wrapper.orderByAsc(BusShift::getShiftDate, BusShift::getDepartTime);
         return buildVOs(shiftMapper.selectList(wrapper));
     }
 
