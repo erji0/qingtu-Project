@@ -25,18 +25,6 @@
         </view>
       </view>
 
-      <view class="qt-card demo-card">
-        <view class="demo-head">
-          <uni-icons type="info" size="18" color="#8BA3C7" />
-          <text class="demo-title">演示数据说明</text>
-        </view>
-        <text class="demo-text">
-          本系统为校园校车智能调度演示环境，班次、车辆与位置数据均由后端模拟生成。
-          可使用演示账号 student / 123456 登录，体验班次查询、预约与车辆实时位置。
-        </text>
-        <text class="demo-text">车辆位置每 10 秒自动刷新，模拟调度任务会持续推进车辆进度。</text>
-      </view>
-
       <button class="qt-btn logout-btn" @click="logout">退出登录</button>
       <text class="version">青途 · 校园班车学生端 v1.0.0</text>
     </view>
@@ -177,34 +165,6 @@ function logout() {
   font-size: 28rpx;
   color: #1f2733;
   font-weight: 500;
-}
-
-.demo-card {
-  margin-top: 20rpx;
-}
-
-.demo-head {
-  display: flex;
-  align-items: center;
-  gap: 10rpx;
-  margin-bottom: 16rpx;
-}
-
-.demo-title {
-  font-size: 28rpx;
-  font-weight: 600;
-  color: #1f2733;
-}
-
-.demo-text {
-  display: block;
-  font-size: 24rpx;
-  line-height: 1.75;
-  color: #7a8497;
-}
-
-.demo-text + .demo-text {
-  margin-top: 4rpx;
 }
 
 .logout-btn {

@@ -55,15 +55,15 @@ public class ShiftService {
     private final BusVehicleLocationMapper locationMapper;
 
     public List<ShiftVO> list(LocalDate date, Long routeId) {
-        LambdaQueryWrapper<BusShift> wrapper = new LambdaQueryWrapper<BusShift>()
-                .orderByAsc(BusShift::getShiftDate)
-                .orderByAsc(BusShift::getDepartTime);
+        LambdaQueryWrapper<BusShift> wrapper = new LambdaQueryWrapper<BusShift>();
         if (date != null) {
             wrapper.eq(BusShift::getShiftDate, date);
         }
         if (routeId != null) {
             wrapper.eq(BusShift::getRouteId, routeId);
         }
+        // 状态优先级：运行中 → 待发车 → 已完成 → 已取消，同状态按发车时间升序
+        wrapper.last("ORDER BY FIELD(status, 'RUNNING', 'SCHEDULED', 'FINISHED', 'CANCELLED'), shift_date ASC, depart_time ASC");
         return buildVOs(shiftMapper.selectList(wrapper));
     }
 
@@ -339,5 +339,56 @@ public class ShiftService {
             }
             taskMapper.updateById(task);
         }
+    }
+
+    /**
+     * 按"前一天有效班次"为模板，为指定日期自动发布新班次。
+     * <p>
+     * 每天凌晨调度任务调用此方法（默认 target = 今天）。
+     * 重复调度是幂等的：同一 (route_id, shift_date, depart_time) 三元组
+     * 当天已存在则跳过，不会产生脏数据。
+     *
+     * @param target 要发布的班次日期；null 表示今天
+     * @return 本次新创建的班次数量
+     */
+    @Transactional
+    public int publishDaily(LocalDate target) {
+        LocalDate targetDate = target == null ? LocalDate.now() : target;
+        LocalDate templateDate = targetDate.minusDays(1);
+
+        // 模板：前一天所有未取消的班次（RUNNING / SCHEDULED / FINISHED 都能作为排班模板）
+        List<BusShift> templates = shiftMapper.selectList(new LambdaQueryWrapper<BusShift>()
+                .eq(BusShift::getShiftDate, templateDate)
+                .ne(BusShift::getStatus, ShiftStatus.CANCELLED));
+        if (templates.isEmpty()) {
+            return 0;
+        }
+
+        // target 日期已存在的 (route_id, depart_time) 集合，用于幂等跳过
+        List<BusShift> existing = shiftMapper.selectList(new LambdaQueryWrapper<BusShift>()
+                .eq(BusShift::getShiftDate, targetDate));
+        Set<String> existingKey = existing.stream()
+                .map(s -> s.getRouteId() + "_" + s.getDepartTime())
+                .collect(Collectors.toSet());
+
+        int created = 0;
+        for (BusShift tpl : templates) {
+            String key = tpl.getRouteId() + "_" + tpl.getDepartTime();
+            if (existingKey.contains(key)) {
+                continue;
+            }
+            BusShift shift = new BusShift();
+            shift.setRouteId(tpl.getRouteId());
+            shift.setVehicleId(tpl.getVehicleId());
+            shift.setDriverId(tpl.getDriverId());
+            shift.setShiftDate(targetDate);
+            shift.setDepartTime(tpl.getDepartTime());
+            shift.setStatus(ShiftStatus.SCHEDULED);
+            shift.setCreateTime(LocalDateTime.now());
+            shiftMapper.insert(shift);
+            syncTask(shift);
+            created++;
+        }
+        return created;
     }
 }

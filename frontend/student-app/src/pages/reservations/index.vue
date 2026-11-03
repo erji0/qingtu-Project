@@ -125,7 +125,7 @@ function canLocate(item) {
 }
 
 function statusTag(item) {
-  if (item.status === 'SIGNED') return { text: '已签到', cls: 'qt-tag-green' }
+  if (item.status === 'SIGNED') return { text: '已签到', cls: 'qt-tag-blue' }
   if (isCancelled(item)) return { text: '已取消', cls: 'qt-tag-gray' }
   if (item.shiftStatus === 'RUNNING') return { text: '运行中', cls: 'qt-tag-blue' }
   if (item.shiftStatus === 'FINISHED') return { text: '已完成', cls: 'qt-tag-gray' }

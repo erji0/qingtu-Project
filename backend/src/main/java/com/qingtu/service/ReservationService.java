@@ -81,7 +81,8 @@ public class ReservationService {
         List<BusReservation> reservations = reservationMapper.selectList(
                 new LambdaQueryWrapper<BusReservation>()
                         .eq(BusReservation::getUserId, userId)
-                        .orderByDesc(BusReservation::getCreateTime));
+                        // 状态优先级：已签到 → 已预约 → 已取消，同状态按创建时间倒序
+                        .last("ORDER BY FIELD(status, 'SIGNED', 'RESERVED', 'CANCELLED'), create_time DESC"));
         if (reservations.isEmpty()) {
             return Collections.emptyList();
         }

@@ -94,8 +94,8 @@ button::after {
 }
 
 .qt-tag-blue {
-  color: #8BA3C7;
-  background-color: #EDF1F7;
+  color: #2563eb;
+  background-color: #dbeafe;
 }
 
 .qt-tag-green {

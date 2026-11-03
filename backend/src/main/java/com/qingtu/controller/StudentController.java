@@ -36,12 +36,25 @@ public class StudentController {
     private final LocationService locationService;
     private final RouteService routeService;
 
+    /**
+     * 获取班次列表接口
+     * 根据日期和路线ID筛选班次信息，排除已取消的班次
+     *
+     * @param date 查询日期，可选参数，格式为ISO日期格式(yyyy-MM-dd)，未提供则默认为当前日期
+     * @param routeId 路线ID，可选参数，用于筛选特定路线的班次
+     * @return 返回Result对象，包含班次列表数据(List<ShiftVO>)
+     */
     @GetMapping("/shifts")
     public Result<List<ShiftVO>> shifts(
+        // 日期参数，可选，使用ISO日期格式
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+        // 路线ID参数，可选
             @RequestParam(required = false) Long routeId) {
+        // 如果未提供日期参数，则使用当前日期
         LocalDate target = date == null ? LocalDate.now() : date;
+        // 获取班次列表，过滤掉已取消的班次，并转换为List
         List<ShiftVO> shifts = shiftService.list(target, routeId).stream()
+            // 过滤条件：班次状态不等于已取消
                 .filter(s -> !ShiftStatus.CANCELLED.equals(s.getStatus()))
                 .collect(Collectors.toList());
         return Result.ok(shifts);

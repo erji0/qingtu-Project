@@ -62,4 +62,14 @@ public class AdminShiftController {
         shiftService.delete(id);
         return Result.ok();
     }
+
+    /**
+     * 手动触发班次自动发布（以前一天为模板，为指定日期创建班次）。
+     * 用于补齐调度遗漏或手动测试。date 为空时对"今天"发布。
+     */
+    @PostMapping("/publish-daily")
+    public Result<Integer> publishDaily(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+        return Result.ok(shiftService.publishDaily(date));
+    }
 }

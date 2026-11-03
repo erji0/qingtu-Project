@@ -41,14 +41,6 @@
       </view>
     </view>
 
-    <view class="demo-card" @click="fillDemo">
-      <view class="demo-head">
-        <text class="demo-title">演示账号</text>
-        <text class="demo-tip">点击自动填充</text>
-      </view>
-      <text class="demo-line">账号：student　密码：123456</text>
-    </view>
-
     <text class="footer">校园校车智能调度系统</text>
   </view>
 </template>
@@ -70,12 +62,6 @@ onLoad(() => {
     uni.reLaunch({ url: '/pages/index/index' })
   }
 })
-
-function fillDemo() {
-  form.username = 'student'
-  form.password = '123456'
-  uni.showToast({ title: '已填充演示账号', icon: 'none' })
-}
 
 function goRegister() {
   uni.navigateTo({ url: '/pages/register/register' })
@@ -206,39 +192,6 @@ async function submit() {
 .link-text {
   font-size: 26rpx;
   color: #8BA3C7;
-}
-
-.demo-card {
-  width: 100%;
-  margin-top: 32rpx;
-  padding: 24rpx 28rpx;
-  border-radius: 20rpx;
-  background-color: #ffffff;
-  border: 2rpx dashed #D5DFEC;
-}
-
-.demo-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.demo-title {
-  font-size: 28rpx;
-  font-weight: 600;
-  color: #8BA3C7;
-}
-
-.demo-tip {
-  font-size: 22rpx;
-  color: #9aa3b2;
-}
-
-.demo-line {
-  display: block;
-  margin-top: 12rpx;
-  font-size: 26rpx;
-  color: #5f6b80;
 }
 
 .footer {

@@ -23,21 +23,29 @@ public class RouteService {
     private final BusStopMapper stopMapper;
     private final BusShiftMapper shiftMapper;
 
+/**
+ * 根据条件获取公交线路列表
+ * @param onlyEnabled 是否只获取启用的线路，true表示只获取状态为1的线路，false表示获取所有线路
+ * @return 返回符合条件的公交线路列表，按ID升序排列
+ */
     public List<BusRoute> list(boolean onlyEnabled) {
+    // 创建Lambda查询条件构造器，并按ID升序排序
         LambdaQueryWrapper<BusRoute> wrapper = new LambdaQueryWrapper<BusRoute>()
                 .orderByAsc(BusRoute::getId);
+    // 如果只查询启用的线路，添加状态等于1的条件
         if (onlyEnabled) {
             wrapper.eq(BusRoute::getStatus, 1);
         }
+    // 执行查询并返回结果列表
         return routeMapper.selectList(wrapper);
     }
 
-/**
- * 创建新的公交线路
- * @param route 包含线路信息的BusRoute对象
- * @return 创建后的BusRoute对象，包含生成的ID和其他信息
- * @throws BusinessException 当线路名称为空或空白时抛出异常
- */
+    /**
+     * 创建新的公交线路
+     * @param route 包含线路信息的BusRoute对象
+     * @return 创建后的BusRoute对象，包含生成的ID和其他信息
+     * @throws BusinessException 当线路名称为空或空白时抛出异常
+     */
     public BusRoute create(BusRoute route) {
     // 检查线路名称是否为空或空白，如果是则抛出业务异常
         if (route.getName() == null || route.getName().isBlank()) {

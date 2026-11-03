@@ -207,6 +207,7 @@ function statusText(status) {
 
 function statusClass(status) {
   if (status === 'RUNNING') return 'qt-tag-green'
+  if (status === 'SCHEDULED') return 'qt-tag-blue'
   if (status === 'FINISHED') return 'qt-tag-gray'
   if (status === 'CANCELLED') return 'qt-tag-red'
   return 'qt-tag-blue'
